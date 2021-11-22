@@ -4,5 +4,5 @@ Official repository of the ShallowMind 2021-2022 Research Team studying network 
 - Commit messages please
 - Separate projects in folders
 
-### NEAT API
+### NEAT Documentation
 https://neat-python.readthedocs.io/en/latest/
