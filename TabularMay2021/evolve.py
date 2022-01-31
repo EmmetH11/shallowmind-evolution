@@ -6,8 +6,8 @@ import neat
 
 
 # process values in train and test files (pandas)
-dataframe = pd.read_csv("/Users/evanxie/Evan's Stuff/Shallow Mind/Network1/DataSet1/train.csv")
-test_df = pd.read_csv("/Users/evanxie/Evan's Stuff/Shallow Mind/Network1/DataSet1/test.csv")
+dataframe = pd.read_csv("DataSet1/train.csv")
+test_df = pd.read_csv("DataSet1/test.csv")
 
 # remove unnecessary column from dataframe
 dataframe.drop("id", axis = 1, inplace = True)
@@ -21,7 +21,7 @@ dataframe.drop("index", axis = 1, inplace = True)
 # create numpy arrays
 input_vals = dataframe.iloc[0:250, 0:50].values
 output_vals = dataframe.iloc[0:250, 50].values
-input_tvals = test_df.iloc[250:350, 0:50].values
+input_tvals = dataframe.iloc[250:350, 0:50].values
 output_tvals = dataframe.iloc[250:350, 50].values
 
 # convert classes to numbers
@@ -84,7 +84,7 @@ def run(config_file):
 
     # Create the population, which is the top-level object for a NEAT run.
     p = neat.Population(config)
-    #p = neat.Checkpointer.restore_checkpoint("/Users/evanxie/Evan's Stuff/Shallow Mind/Network1/neat-checkpoint-49")
+    #p = neat.Checkpointer.restore_checkpoint("neat-checkpoint-49")
 
     # Add a stdout reporter to show progress in the terminal.
     p.add_reporter(neat.StdOutReporter(True))
