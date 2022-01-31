@@ -4,6 +4,7 @@ import numpy as np
 import os
 import neat
 
+seed = 1
 
 # process values in train and test files (pandas)
 dataframe = pd.read_csv("DataSet1/train.csv")
@@ -14,7 +15,7 @@ dataframe.drop("id", axis = 1, inplace = True)
 test_df.drop("id", axis = 1, inplace = True)
 
 # randomly order rows
-dataframe = dataframe.iloc[np.random.permutation(len(dataframe))]
+dataframe.sample(n=250, random_state=1)
 dataframe.reset_index(inplace = True)
 dataframe.drop("index", axis = 1, inplace = True)
 
